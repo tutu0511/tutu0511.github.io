@@ -58,11 +58,94 @@
 			background-position: center;
 			background-size: cover;
 		}
+		#meun{
+			top:-30px;
+			left:10px;
+			position:relative;
+		}
+		#meun{
+			img{pointer:cursor;}
+		}
+		#all{
+			width:986px;
+			height:468px;
+			margin-left:auto;
+			margin-right:auto;
+		}
 	</style>
+	<script>
+	 $(document).ready(function() {
+		for(i = 0; i < 3; i++)
+		{
+			alert(i);
+		
+			$("meun img:eq("+i+")").click({id:i}function(){
+				n = e.data.id;
+				change();
+				clearInterval(clock);
+				clock = setInterval(auto,2000);
+			})
+		}
+		$("#meun img:eq(0)").click(function(){
+			n = 0;
+			change();
+			clearInterval(clock);
+			clock = setInterval(auto,2000);
+		});
+		$("#meun img:eq(1)").click(function(){
+			n = 1;
+			change();
+			clearInterval(clock);
+			clock = setInterval(auto,2000);
+		});
+		$("#meun img:eq(2)").click(function(){
+			n = 2;
+			change();
+			clearInterval(clock);
+			clock = setInterval(auto,2000);
+		});
+		n = 0;
+		clock = setInterval(auto,1500);
+		$("products img").mouseover(function(){
+			clearInterval(clock);
+		});
+		$("products img").mouseout(function(){
+			clock = setInterval(auto,1500);
+		});
+		function auto(){
+			n++;
+			if(n>2){
+				n = 0;
+			}
+			change();
+		}
+		function change(){
+		$("#products img").fadeOut(400,function(){});
+			$("#products img").attr("src","tutu0511.github.io/"+n+".jpg");
+			$("#products img").fadeIn();
+		});
+		$("#meun img").attr("src","tutu0511.github.io/dots.jpg");
+		$("#meun img:eq("+n+")").attr("src","tutu0511.github.io/dots.jpg");
+		}
+	});
+	
+	</script>
+	
     <title>tutu's website</title>
   </head>
   <body background-repeat = "no-repeat" background = "tutu0511.github.io/6.jpg" >
-		
+		<div id = all>
+			<div id = products><img class = "small-image" src = "tutu0511.github.io/taiwan.jpg"
+				alt = "Japan" align = "left">
+			 <img class = "small-image" src = "tutu0511.github.io/J1.jpg"
+				alt = "Japan" align = "left">
+			 <img class = "small-image" src = "tutu0511.github.io/NORWAY.jpg"
+				alt = "Japan" align = "left"></div>
+			<div id = meun><img src = "tutu0511.github.io/dots.jpg"
+		 alt = "Dots" align = "left"><img class = "small-image" src = "tutu0511.github.io/whitedots.jpg"
+		 alt = "Dots" align = "left"><img class = "small-image" src = "tutu0511.github.io/whitedots.jpg"
+		 alt = "Dots" align = "left"></div>
+		</div>
     <marquee direction = "right" scrollamount="8"><h1>Welcome to tutu's website</h1></marquee>
 	<img class = "small-image animated rubberBand" src = "tutu0511.github.io/taiwan.jpg"
 		 alt = "Japan" align = "left">
