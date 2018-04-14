@@ -10,6 +10,15 @@
 	left: 0px;
 	
 }
+sidebar{
+	position: fixed;
+	top:0px;
+	left:0px;
+	background: #262626;
+	width: 250px;
+	height: 100%;
+	transition: .3s;
+}
 ul{
 	margin: 0px;
 	padding: 20px 250PX;
