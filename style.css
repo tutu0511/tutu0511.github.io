@@ -6,10 +6,6 @@
 	background: #fff;
 	overflow: hidden;
 }
-.ative{
-	left: 0px;
-	
-}
 .sidebar{
 	position: fixed;
 	top:0px;
@@ -18,6 +14,10 @@
 	width: 250px;
 	height: 100%;
 	transition: .3s;
+}
+.ative{
+	left: 0px;
+	
 }
 ul{
 	margin: 0px;
