@@ -9,9 +9,9 @@
 .sidebar{
 	position: fixed;
 	top:0px;
-	left:-200px;
+	left:-250px;
 	background: #262626;
-	width: 200px;
+	width: 250px;
 	height: 100%;
 	transition: .3s;
 }
@@ -21,7 +21,7 @@
 }
 ul{
 	margin: 0px;
-	padding: 150px 0PX;
+	padding: 20px 0;
 }
 ul li{
 	list-style: none;
