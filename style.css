@@ -4,7 +4,10 @@
 	padding: 0px;
 	font-family: verdana;
 	background: #fff;
-	overflow: hidden;
+	
+	background-attachment: fixed;
+	background-position: cente;
+	background-size: cover;
 }
 .sidebar{
 	position: fixed;
