@@ -11,6 +11,7 @@
 		$(document).ready(function(){
 			$(".Jap").hide();
 			$(".Kor").hide();
+			$(".HK").hide();
 			$(".sidebarBtn").click(function(){
 				$(".sidebar").toggleClass('ative');
 				$(".sidebarBtn").toggleClass('toggle');
@@ -20,6 +21,9 @@
 			});
 			$(".textK").click(function(){
                 $(".Kor").slideToggle("slow");
+			});
+			$(".textH").click(function(){
+                $(".HK").slideToggle("slow");
 			});
 		});
 	</script>
@@ -76,6 +80,12 @@
 		margin-right: 60px;
 		margin-top: 50px;
 	}
+	.HK{
+		width: 500px;
+		margin-left: 300px;
+		margin-right: 60px;
+		margin-top: 50px;
+	}
 	.country{
 		margin-left: 700px;
 		margin-top: 50px;
@@ -88,6 +98,10 @@
 		font-size: 35px;
 	}
 	.textK{
+		text-align: center;
+		font-size: 35px;
+	}
+	.textH{
 		text-align: center;
 		font-size: 35px;
 	}
@@ -114,23 +128,23 @@
 		<br>煩惱的事情也隨風飄去<br>
 		<br>大家一起分享美麗的回憶吧!!!<br>
 	<a name= "J">
-		<h5 class = "textJ animated lightSpeedIn">Japan</h5>
+		<h5 class = "textJ animated lightSpeedIn">Japan(Click)</h5>
 	</a>
 		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j1.jpg"alt = "Japan" align = "center">
 		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j2.jpg"alt = "Japan" align = "center">
 		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j3.jpg"alt = "Japan" align = "center">
 		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j4.jpg"alt = "Japan" align = "center">
 	<a name= "K">
-		<h5 class = "textK animated lightSpeedIn" margin-top= "300px">Koera</h5>
+		<h5 class = "textK animated lightSpeedIn" margin-top= "300px">Koera(Click)</h5>
 	</a>
 		<img class = "Kor animated rubberBand" src = "tutu0511.github.io/k1.JPG"alt = "Japan" align = "left">
 		<img class = "Kor animated rubberBand" src = "tutu0511.github.io/k2.JPG"alt = "Japan" align = "left">
 		<img class = "Kor animated rubberBand" src = "tutu0511.github.io/k3.JPG"alt = "Japan" align = "left">
 	<a name= "H">
-		<h5 class = "text animated lightSpeedIn">HongKong</h5>
+		<h5 class = "textH animated lightSpeedIn">HongKong(Click)</h5>
 	</a>
-		<img class = "small-image animated rubberBand" src = "tutu0511.github.io/h1.jpg"alt = "Japan" align = "left">
-		<img class = "small-image animated rubberBand" src = "tutu0511.github.io/h2.jpg"alt = "Japan" align = "left">
-		<img class = "small-image animated rubberBand" src = "tutu0511.github.io/h3.jpg"alt = "Japan" align = "left">
+		<img class = "HK animated rubberBand" src = "tutu0511.github.io/h1.jpg"alt = "Japan" align = "left">
+		<img class = "HK animated rubberBand" src = "tutu0511.github.io/h2.jpg"alt = "Japan" align = "left">
+		<img class = "HK animated rubberBand" src = "tutu0511.github.io/h3.jpg"alt = "Japan" align = "left">
 </body>
 </html>
