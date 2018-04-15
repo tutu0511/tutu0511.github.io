@@ -10,12 +10,16 @@
 	<script type = "text/javascript">
 		$(document).ready(function(){
 			$(".Jap").hide();
+			$(".Kor").hide();
 			$(".sidebarBtn").click(function(){
 				$(".sidebar").toggleClass('ative');
 				$(".sidebarBtn").toggleClass('toggle');
 			});
 			$(".textJ").click(function(){
                 $(".Jap").slideToggle("slow");
+			});
+			$(".textK").click(function(){
+                $(".Kor").slideToggle("slow");
 			});
 		});
 	</script>
