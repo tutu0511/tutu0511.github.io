@@ -9,9 +9,9 @@
 .sidebar{
 	position: fixed;
 	top:0px;
-	left:-300px;
+	left:-100px;
 	background: #262626;
-	width: 300px;
+	width: 100px;
 	height: 100%;
 	transition: .3s;
 }
