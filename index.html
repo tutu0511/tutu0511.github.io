@@ -1,164 +1,208 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
-   	<meta charset="utf-8">
-   	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel= "stylesheet" href = "tutu0511.github.io/style.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script type = "text/javascript">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TUTU's travel</title>
+
+  <!-- TODO add manifest here -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type = "text/javascript">
 		$(document).ready(function(){
-			$(".Jap").hide();
-			$(".HK").hide();
-			$(".sidebarBtn").click(function(){
-				$(".sidebar").toggleClass('ative');
-				$(".sidebarBtn").toggleClass('toggle');
-			});
-			$(".textJ").click(function(){
-                $(".Jap").slideToggle("slow");
-			});
-			$(".textH").click(function(){
-                $(".HK").slideToggle("slow");
+			$(".Taiwanimg").hide();
+			$(".Japanimg").hide();
+			$(".Koeraimg").hide();
+			$(".HongKongimg").hide();
+			$("#map").hide();
+			$("#Country").change(function(){
+				var checkValue=$("#Country").val();
+				if(checkValue == 0)
+				{
+					$(".Taiwanimg").hide();
+					$(".Japanimg").hide();
+					$(".Koeraimg").hide();
+					$(".HongKongimg").hide();
+					$("#map").hide();
+				}
+				if(checkValue == 1)
+				{
+					$(".Taiwanimg").slideToggle("slow");
+					$(".Japanimg").hide();
+					$(".Koeraimg").hide();
+					$(".HongKongimg").hide();
+					$("#map").hide();
+					checkValue=$("#Country").val();
+				}
+				if(checkValue == 2)
+				{
+					$(".Japanimg").slideToggle("slow");
+					$(".Taiwanimg").hide();
+					$(".Koeraimg").hide();
+					$(".HongKongimg").hide();
+					$("#map").hide();
+					checkValue=$("#Country").val();
+				}
+				if(checkValue == 3)
+				{
+					$(".Koeraimg").slideToggle("slow");
+					$(".Taiwanimg").hide();
+					$(".Japanimg").hide();
+					$(".HongKongimg").hide();
+					$("#map").hide();
+					checkValue=$("#Country").val();
+				}
+				if(checkValue == 4)
+				{
+					$(".HongKongimg").slideToggle("slow");
+					$(".Taiwanimg").hide();
+					$(".Japanimg").hide();
+					$(".Koeraimg").hide();
+					$("#map").hide();
+					checkValue=$("#Country").val();
+				}
+				if(checkValue == 5)
+				{
+					$("#map").slideToggle("slow");
+					$(".Taiwanimg").hide();
+					$(".Japanimg").hide();
+					$(".Koeraimg").hide();
+					$(".HongKongimg").hide();
+					checkValue=$("#Country").val();
+				}
 			});
 		});
-	</script>
-	<style>
-	h1{
-		font-family: Monospace;
-	}
-	h2{
-		font-family: Lobster;
-		margin-top: 50px;
-		animated-delay: 5s;
-		font-size: 35px;
-	}
-	h3{
-		font-family: Lobster;
-		margin-top: 50px;
-		animated-delay: 5s;
-		font-size: 35px;
-	}
-	h4{
-		font-family: Lobster;
-		margin-top: 50px;
-		animated-delay: 5s;
-		font-size: 35px;
-	}
-			
-	ul{
-		font-family: Monospace;
-		margin-left: 150px;
-		font-size: 20px;
-	}
-	P
-	{
-		font-family: Monospace;
-		margin-top: 50px;
-		margin-left: 150px;
-		font-size: 25px;
-		margin-bottom:50px;
-	}
-	.anotherP
-	{
-		font-family: Monospace;
-		margin-top: 50px;
-		margin-left: 250px;
-		font-size: 25px;
-		margin-bottom:50px;
-	}
-	.small-image{
-		width: 500px;
-		margin-left: 300px;
-		margin-right: 60px;
-		margin-top: 50px;
-	}
-	.Jap{
-		width: 500px;
-		margin-left: 300px;
-		margin-right: 60px;
-		margin-top: 50px;
-	}
-	.HK{
-		width: 500px;
-		margin-left: 300px;
-		margin-right: 60px;
-		margin-top: 50px;
-	}
-	.country{
-		margin-left: 700px;
-		margin-top: 50px;
-	}
-	marquee{
-		margin-top: 100px;
-		font-size: 30px;
-		ont-family: Monospace;
-	}
-	.textJ{
-		text-align: center;
-		font-size: 35px;
-	}
-	.textH{
-		text-align: center;
-		font-size: 35px;
-	}
-	body{
-		background-attachment: fixed;
-		background-position: center;
-		background-size: cover;
-		background-repeat = "no-repeat"
-	}
-	</style>
-	<title>TUTU'S Website</title>
+		
+		</script>
+		<style>
+			h1{
+				font-family: Monospace;
+				margin: auto;
+				font-size: 40px;
+			}
+			body{
+				background-attachment: fixed;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				width:100%;
+				height:100%;
+			}
+			form{
+				margin-left: 150px;
+			}
+			.Taiwanimg{
+				width: 500px;
+				margin: auto;
+				padding-top:50px;
+			}
+			.Japanimg{
+				width: 500px;
+				margin: auto;
+				padding-top:50px;
+			}
+			.Koeraimg{
+				width: 500px;
+				margin: auto;
+				padding-top:50px;
+			}
+			.HongKongimg{
+				width: 500px;
+				margin: auto;
+				padding-top:50px;
+			}
+			html{
+				height:100%;
+				width:100%;
+			}
+			 #map {
+				height: 100%;
+			}
+		</style>
 </head>
-	<a name = "Home">
-		<marquee width=100% direction="right" scrolldelay="2" scrollamount="7">Welcome to TUTU's Website</marquee>
-	</a>
-	<body background-repeat = "no-repeat" background = "tutu0511.github.io/6.jpg">
-	<div class = "sidebar">
-	<ul>
-		<li><a href = "#Home">Home</a></li>
-		<li><a href = "#J">Japan</a></li>
-		<li><a href = "#H">HongKong</a></li>
-	</ul>
-	<button class = "sidebarBtn">
-		<span></span>
-	</button>
-	</div>
-	<embed src="tutu0511.github.io/MVLemon.mp3" loop = "true" hidden = "true">
-	<img class = "small-image animated rubberBand" src = "tutu0511.github.io/taiwan.jpg"alt = "Japan" align = "left">
-	<h2 class = "animated lightSpeedIn">Introduction</h2>
-		<br>我很喜歡出去玩<br>
-		<br>每次出去玩都會讓我感覺到很放鬆<br>
-		<br>煩惱的事情也隨風飄去<br>
-		<br>大家一起分享美麗的回憶吧!!!<br>
-		<p>Where I Want to go best3: </p>
-		<ul>
-		  <li>Japan</li>
-		  <li>Norway</li>
-		  <li>America</li>
-		</ul>
-		<h2 class = "animated lightSpeedIn" align = "Center">Japan</h2>
-		<img class = "small-image animated rubberBand" src = "tutu0511.github.io/J1.jpg"alt = "Japan" align = "Center">
-		<p class = "anotherP" >The most famous mountain of FuJi Mountain!!!</p>
-		<h3 class = "animated lightSpeedIn" align = "Center">Noway</h3>
-		<img class = "small-image animated rubberBand" src = "tutu0511.github.io/NORWAY.jpg"alt = "Japan" align = "Center">
-		<p class = "anotherP">The most beautiful scenery in Norway's Fjords!!!</p>
-		<h4 class = "animated lightSpeedIn" align = "Center">America</h4>
-		<img class = "small-image animated rubberBand" src = "tutu0511.github.io/USA.jpg" alt = "Japan" align = "Center">
-		<p class = "anotherP">The most Representative in America is White House!!!</p>
-	<a name= "J">
-		<h5 class = "textJ animated lightSpeedIn">Japan(Click)</h5>
-	</a>
-		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j1.jpg"alt = "Japan" align = "center">
-		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j2.jpg"alt = "Japan" align = "center">
-		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j3.jpg"alt = "Japan" align = "center">
-		<img class = "Jap animated rubberBand" src = "tutu0511.github.io/j4.jpg"alt = "Japan" align = "center">
-	<a name= "H">
-		<h5 class = "textH animated lightSpeedIn" margin-top = "300px" position = "absolute">HongKong(Click)</h5>
-	</a>
-		<img class = "HK animated rubberBand" src = "tutu0511.github.io/h1.jpg"alt = "Japan" align = "left">
-		<img class = "HK animated rubberBand" src = "tutu0511.github.io/h2.jpg"alt = "Japan" align = "left">
-		<img class = "HK animated rubberBand" src = "tutu0511.github.io/h3.jpg"alt = "Japan" align = "left">
+	<body background = "1.jpg">
+		<h1>TUTU's Travel</h1>
+		<form>
+			<select id="Country">
+				<option value="0" selected="selected">Choose Country</option> 
+				<option value="1">Taiwan</option>
+				<option value="2">Japan</option>
+				<option value="3">Koera</option>
+				<option value="4">HongKong</option>
+				<option value="5">Google Map</option>
+			</select>
+		</form>
+		<div>
+			<img class = " Taiwanimg animated rubberBand" src = "T1.jpg" srcset = "T1.jpg 640w,T1.jpg 750w,T1.jpg 1080w" alt = "Taiwan" align = "Center">
+			<img class = " Taiwanimg animated rubberBand" src = "T2.jpg" srcset = "T2.jpg 640w,T2.jpg 750w,T2.jpg 1080w" alt = "Taiwan" align = "Center">
+			<img class = " Taiwanimg animated rubberBand" src = "T3.jpg" srcset = "T3.jpg 640w,T3.jpg 750w,T3.jpg 1080w" alt = "Taiwan" align = "Center">
+		</div>
+		<div>
+			<img class = " Japanimg animated rubberBand" src = "j1.jpg" srcset = "j1.jpg 640w,j1.jpg 750w,j1.jpg 1080w" alt = "Japan" align = "Center">
+			<img class = " Japanimg animated rubberBand" src = "j2.jpg" srcset = "j2.jpg 640w,j2.jpg 750w,j2.jpg 1080w" alt = "Japan" align = "Center">
+			<img class = " Japanimg animated rubberBand" src = "j3.jpg" srcset = "j3.jpg 640w,j3.jpg 750w,j3.jpg 1080w" alt = "Japan" align = "Center">
+		</div>
+		<div>
+			<img class = " Koeraimg animated rubberBand" src = "k1.JPG" srcset = "k1.JPG 640w,k1.JPG 750w,k1.JPG 1080w" alt = "Koera" align = "Center">
+			<img class = " Koeraimg animated rubberBand" src = "k2.JPG" srcset = "k2.JPG 640w,k2.JPG 750w,k2.JPG 1080w" alt = "Koera" align = "Center">
+			<img class = " Koeraimg animated rubberBand" src = "k3.JPG" srcset = "k3.JPG 640w,k3.JPG 750w,k3.JPG 1080w" alt = "Koera" align = "Center">
+		</div>
+		<div>
+			<img class = " HongKongimg animated rubberBand" src = "h1.jpg" srcset = "h1.jpg 640w,h1.jpg 750w,h1.jpg 1080w" alt = "HongKong" align = "Center">
+			<img class = " HongKongimg animated rubberBand" src = "h2.jpg" srcset = "h2.jpg 640w,h2.jpg 750w,h2.jpg 1080w" alt = "HongKong" align = "Center">
+			<img class = " HongKongimg animated rubberBand" src = "h3.jpg" srcset = "h3.jpg 640w,h3.jpg 750w,h3.jpg 1080w" alt = "HongKong" align = "Center">
+		</div>
+		<div id="map"></div>
+		 <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByDmU26usVo2m6q5XcX__wzX6aR876hQE&callback=initMap"
+		async defer></script>
+  <!-- Uncomment the line below when ready to test with fake data -->
+  <script src="/app.js" async></script>
+
 </body>
 </html>
