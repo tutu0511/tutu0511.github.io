@@ -15,6 +15,7 @@
 		<script type = "text/javascript">
 		$(document).ready(function(){
 			$(".Taiwanimg").hide();
+			$(".project").hide();
 			$(".Japanimg").hide();
 			$(".Koeraimg").hide();
 			$(".HongKongimg").hide();
@@ -63,16 +64,6 @@
 				{
 					$(".tab").hide();
 					$(".HongKongimg").slideToggle("slow");
-					$(".Taiwanimg").hide();
-					$(".Japanimg").hide();
-					$(".Koeraimg").hide();
-					$(".project").hide();
-					checkValue=$("#Country").val();
-				}
-				if(checkValue == 5)
-				{
-					$(".tab").slideToggle("slow");
-					$(".HongKongimg").hide();
 					$(".Taiwanimg").hide();
 					$(".Japanimg").hide();
 					$(".Koeraimg").hide();
@@ -156,8 +147,7 @@
 		<h1>TUTU's Travel</h1>
 		<form>
 			<select id="Country">
-				<option value="0" selected="selected">Choose Country</option> 
-				<option value="5">Introduction</option>
+				<option value="0" selected="selected">Introduction</option> 
 				<option value="6">Project</option>
 				<option value="1">Taiwan</option>
 				<option value="2">Japan</option>
