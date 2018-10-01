@@ -1,160 +1,87 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TUTU's travel</title>
+  <style type="text/css">
+  body{
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		width:100%;
+		height:100%;
+	}
+  	.tab {
+	    overflow: hidden;
+	    border: 1px solid #ccc;
+	    background-color: #f1f1f1;
+	}
 
-  <!-- TODO add manifest here -->
-  <link rel="manifest" href="/manifest.json">
-  
-  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<script type = "text/javascript">
-		$(document).ready(function(){
-			$(".Taiwanimg").hide();
-			$(".Japanimg").hide();
-			$(".Koeraimg").hide();
-			$(".HongKongimg").hide();
-			$("#map").hide();
-			$("#Country").change(function(){
-				var checkValue=$("#Country").val();
-				if(checkValue == 0)
-				{
-					$(".tab").hide();
-					$(".Taiwanimg").hide();
-					$(".Japanimg").hide();
-					$(".Koeraimg").hide();
-					$(".HongKongimg").hide();
-					$("#map").hide();
-				}
-				if(checkValue == 1)
-				{
-					$(".tab").hide();
-					$(".Taiwanimg").slideToggle("slow");
-					$(".Japanimg").hide();
-					$(".Koeraimg").hide();
-					$(".HongKongimg").hide();
-					$("#map").hide();
-					checkValue=$("#Country").val();
-				}
-				if(checkValue == 2)
-				{
-					$(".tab").hide();
-					$(".Japanimg").slideToggle("slow");
-					$(".Taiwanimg").hide();
-					$(".Koeraimg").hide();
-					$(".HongKongimg").hide();
-					$("#map").hide();
-					checkValue=$("#Country").val();
-				}
-				if(checkValue == 3)
-				{
-					$(".tab").hide();
-					$(".Koeraimg").slideToggle("slow");
-					$(".Taiwanimg").hide();
-					$(".Japanimg").hide();
-					$(".HongKongimg").hide();
-					$("#map").hide();
-					checkValue=$("#Country").val();
-				}
-				if(checkValue == 4)
-				{
-					$(".tab").hide();
-					$(".HongKongimg").slideToggle("slow");
-					$(".Taiwanimg").hide();
-					$(".Japanimg").hide();
-					$(".Koeraimg").hide();
-					$("#map").hide();
-					checkValue=$("#Country").val();
-				}
-				if(checkValue == 5)
-				{
-					$(".tab").hide();
-					$("#map").slideToggle("slow");
-					$(".Taiwanimg").hide();
-					$(".Japanimg").hide();
-					$(".Koeraimg").hide();
-					$(".HongKongimg").hide();
-					checkValue=$("#Country").val();
-				}
-			});
-		});
-		
-		</script>
-		<style>
-			h1{
-				font-family: Monospace;
-				margin: auto;
-				font-size: 40px;
-			}
-			body{
-				background-attachment: fixed;
-				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;
-				width:100%;
-				height:100%;
-			}
-			form{
-				margin-left: 150px;
-			}
-			.Taiwanimg{
-				width: 500px;
-				margin: auto;
-				padding-top:50px;
-			}
-			.Taiwan{
-				width: 500px;
-				margin: auto;
-				padding-top:50px;
-				margin-left: 500px;
-			}
-			.Japanimg{
-				width: 500px;
-				margin: auto;
-				padding-top:50px;
-			}
-			.Koeraimg{
-				width: 500px;
-				margin: auto;
-				padding-top:50px;
-			}
-			.HongKongimg{
-				width: 500px;
-				margin: auto;
-				padding-top:50px;
-			}
-			.tab{
-				font-size: 24px;
-				margin-left: 500px;
-				margin-top: 20px;
-			}
-			html{
-				height:100%;
-				width:100%;
-			}
-			 #map {
-				height: 100%;
-			}
-		</style>
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	    background-color: inherit;
+	    float: left;
+	    border: none;
+	    outline: none;
+	    cursor: pointer;
+	    padding: 14px 16px;
+	    transition: 0.3s;
+	}
+
+/* Change background color of buttons on hover */
+	.tab button:hover {
+	    background-color: #ddd;
+	}
+
+	/* Create an active/current tablink class */
+	.tab button.active {
+	    background-color: #ccc;
+	    animation: fadeEffect 1s;
+	}
+
+	/* Style the tab content */
+	.tabcontent {
+	    display: none;
+	    padding: 6px 12px;
+	    border: 1px solid #ccc;
+	    border-top: none;
+	}
+	.introduction{
+		width: 300px;
+		height: 300px;
+	}
+
+	.Japanimg{
+		width: 500px;
+		margin: auto;
+		padding-top:50px;
+	}
+	.HongKongimg{
+		width: 500px;
+		margin: auto;
+		padding-top:50px;
+	}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+  </style>
 </head>
 	<body background = "1.jpg">
 		<h1>TUTU's Travel</h1>
-		<form>
-			<select id="Country">
-				<option value="0" selected="selected">Choose Country</option> 
-				<option value="1">Taiwan</option>
-				<option value="2">Japan</option>
-				<option value="3">Koera</option>
-				<option value="4">HongKong</option>
-				<option value="5">Google Map</option>
-			</select>
-		</form>
-		<div>
+
+		<div class="tab">
+		  <button class="tablinks" onclick="openCity(event, 'Introduction')">Introduction</button>
+		  <button class="tablinks" onclick="openCity(event, 'Paris')">Japan</button>
+		  <button class="tablinks" onclick="openCity(event, 'Tokyo')">HongKong</button>
+		</div>
+
+	<!-- Tab content -->
+	<div id="Introduction" class="tabcontent introduction">
+	  <div>
 			<img id="Country" class = " tab Taiwan animated rubberBand" src = "T2.jpg" srcset = "T2.jpg 640w,T2.jpg 750w,T2.jpg 1080w,T2.jpg 1920w" align="center">
 		</div>
 		<table class="tab" style="border:3px #cccccc solid" border = 1>
@@ -179,25 +106,45 @@
 				<td> 散步、製作手工卡片、聽音樂  </td>
 			</tr>
 		</table>
-		<div>
-			<img class = " Taiwanimg animated rubberBand" width="500" height="300" src = "T1.jpg" srcset = "T1.jpg 640w,T1.jpg 750w,T1.jpg 1080w" alt = "Taiwan" align = "Center">
-			<img class = " Taiwanimg animated rubberBand" width="500" height="300" src = "T2.jpg" srcset = "T2.jpg 640w,T2.jpg 750w,T2.jpg 1080w" alt = "Taiwan" align = "Center">
-			<img class = " Taiwanimg animated rubberBand" width="500" height="300" src = "T3.jpg" srcset = "T3.jpg 640w,T3.jpg 750w,T3.jpg 1080w" alt = "Taiwan" align = "Center">
-		</div>
-		<div>
+	</div>
+
+	<div id="Paris" class="tabcontent">
+	  <div>
 			<img class = " Japanimg animated rubberBand" src = "j1.jpg" srcset = "j1.jpg 640w,j1.jpg 750w,j1.jpg 1080w" alt = "Japan" align = "Center">
 			<img class = " Japanimg animated rubberBand" src = "j2.jpg" srcset = "j2.jpg 640w,j2.jpg 800w,j2.jpg 1080w" alt = "Japan" align = "Center">
 			<img class = " Japanimg animated rubberBand" src = "j3.jpg" srcset = "j3.jpg 640w,j3.jpg 750w,j3.jpg 1080w" alt = "Japan" align = "Center">
 		</div>
-		<div>
-			<img class = " Koeraimg animated rubberBand" src = "k1.JPG" srcset = "k1.JPG 640w,k1.JPG 750w,k1.JPG 1080w" alt = "Koera" align = "Center">
-			<img class = " Koeraimg animated rubberBand" src = "k2.JPG" srcset = "k2.JPG 640w,k2.JPG 750w,k2.JPG 1080w" alt = "Koera" align = "Center">
-			<img class = " Koeraimg animated rubberBand" src = "k3.JPG" srcset = "k3.JPG 640w,k3.JPG 750w,k3.JPG 1080w" alt = "Koera" align = "Center">
-		</div>
-		<div>
-			<img class = " HongKongimg animated rubberBand" src = "h1.jpg" srcset = "h1.jpg 640w,h1.jpg 750w,h1.jpg 1080w" alt = "HongKong" align = "Center">
-			<img class = " HongKongimg animated rubberBand" src = "h2.jpg" srcset = "h2.jpg 640w,h2.jpg 750w,h2.jpg 1080w" alt = "HongKong" align = "Center">
-			<img class = " HongKongimg animated rubberBand" src = "h3.jpg" srcset = "h3.jpg 640w,h3.jpg 750w,h3.jpg 1080w" alt = "HongKong" align = "Center">
-		</div>
+	</div>
+
+	<div id="Tokyo" class="tabcontent">
+	  	<img class = " HongKongimg animated rubberBand" src = "h1.jpg" srcset = "h1.jpg 640w,h1.jpg 750w,h1.jpg 1080w" alt = "HongKong" align = "Center">
+		<img class = " HongKongimg animated rubberBand" src = "h2.jpg" srcset = "h2.jpg 640w,h2.jpg 750w,h2.jpg 1080w" alt = "HongKong" align = "Center">
+		<img class = " HongKongimg animated rubberBand" src = "h3.jpg" srcset = "h3.jpg 640w,h3.jpg 750w,h3.jpg 1080w" alt = "HongKong" align = "Center">
+	</div>
+
+<script type="text/javascript">
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
 </body>
 </html>
+
