@@ -14,6 +14,7 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 		<script type = "text/javascript">
 		$(document).ready(function(){
+			$(".tab").hide();
 			$(".Taiwanimg").hide();
 			$(".Japanimg").hide();
 			$(".Koeraimg").hide();
@@ -66,12 +67,11 @@
 				}
 				if(checkValue == 5)
 				{
-					$(".tab").hide();
-					$("#map").slideToggle("slow");
+					$(".tab").slideToggle("slow");
+					$(".HongKongimg").hide();
 					$(".Taiwanimg").hide();
 					$(".Japanimg").hide();
 					$(".Koeraimg").hide();
-					$(".HongKongimg").hide();
 					checkValue=$("#Country").val();
 				}
 			});
@@ -83,6 +83,7 @@
 				font-family: Monospace;
 				margin: auto;
 				font-size: 40px;
+				margin-top: 20px;
 			}
 			body{
 				background-attachment: fixed;
@@ -137,6 +138,7 @@
 		<form>
 			<select id="Country">
 				<option value="0" selected="selected">Choose Country</option> 
+				<option value="5">Introduction</option>
 				<option value="1">Taiwan</option>
 				<option value="2">Japan</option>
 				<option value="3">Koera</option>
